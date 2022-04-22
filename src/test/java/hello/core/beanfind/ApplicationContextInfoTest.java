@@ -20,6 +20,7 @@ public class ApplicationContextInfoTest {
             System.out.println("bean = " + bean);
         }
     }
+
     @Test
     @DisplayName("모든 애플리캐이션 빈 출력하기")
     void findAllApplicationBean() {
