@@ -1,7 +1,7 @@
 package hello.core.lifecycle;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class NetworkClient{
     private String url;
@@ -29,11 +29,13 @@ public class NetworkClient{
 
     //의존관계 주입이 끝나면
 
+    @PostConstruct
     public void init() throws Exception {
         connect();
         call("초기화 연결 메시지");
     }
 
+    @PreDestroy
     public void close() throws Exception {
         disconnect();
     }
